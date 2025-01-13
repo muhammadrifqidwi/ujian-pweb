@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -46,20 +47,20 @@ const GameList = () => {
           </thead>
           <tbody>
             {games.map((game) => (
-              <tr key={game.id} className="even:bg-gray-100">
+              <tr key={game._id} className="even:bg-gray-100">
                 <td className="px-6 py-4 text-sm">{game.name}</td>
                 <td className="px-6 py-4 text-sm">{game.developer}</td>
                 <td className="px-6 py-4 text-sm">{game.genre}</td>
                 <td className="px-6 py-4 text-sm">${game.price.toFixed(2)}</td>
                 <td className="px-6 py-4 text-center">
-                  <a
-                    to={`/edit-game/${game.id}`}
+                  <Link
+                    to={`/edit-game/${game._id}`}
                     className="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition mr-2">
                     Edit
-                  </a>
+                  </Link>
                   <button
                     className="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-                    onClick={() => handleDelete(game.id)}>
+                    onClick={() => handleDelete(game._id)}>
                     Delete
                   </button>
                 </td>
