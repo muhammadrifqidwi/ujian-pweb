@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import coverImage from "../assets/controller.jpg";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -28,52 +29,50 @@ const GameList = () => {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto mt-10">
+    <div className="max-w-6xl mx-auto mt-10">
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Game List</h2>
-      <div className="overflow-x-auto bg-white shadow-md rounded-lg">
-        <table className="min-w-full border-collapse">
-          <thead className="bg-blue-600 text-white">
-            <tr>
-              <th className="px-6 py-3 text-left text-sm font-medium">Name</th>
-              <th className="px-6 py-3 text-left text-sm font-medium">
-                Developer
-              </th>
-              <th className="px-6 py-3 text-left text-sm font-medium">Genre</th>
-              <th className="px-6 py-3 text-left text-sm font-medium">Price</th>
-              <th className="px-6 py-3 text-center text-sm font-medium">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {games.map((game) => (
-              <tr key={game._id} className="even:bg-gray-100">
-                <td className="px-6 py-4 text-sm">{game.name}</td>
-                <td className="px-6 py-4 text-sm">{game.developer}</td>
-                <td className="px-6 py-4 text-sm">{game.genre}</td>
-                <td className="px-6 py-4 text-sm">${game.price.toFixed(2)}</td>
-                <td className="px-6 py-4 text-center">
-                  <Link
-                    to={`/edit-game/${game._id}`}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition mr-2">
-                    Edit
-                  </Link>
-                  <button
-                    className="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-                    onClick={() => handleDelete(game._id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        {games.length === 0 && (
-          <div className="text-center py-6 text-gray-600">
-            No games available.
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {games.map((game) => (
+          <div
+            key={game._id}
+            className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img
+              src={coverImage}
+              alt="Game Default"
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {game.name}
+              </h3>
+              <p className="text-gray-600 mb-1">
+                <span className="font-semibold">Developer :</span>{" "}
+                {game.developer}
+              </p>
+              <p className="text-gray-600 mb-3">
+                <span className="font-semibold">Price :</span> ${game.price}
+              </p>
+              <div className="flex justify-end">
+                <Link
+                  to={`/edit-game/${game._id}`}
+                  className="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition mr-2">
+                  Edit
+                </Link>
+                <button
+                  onClick={() => handleDelete(game._id)}
+                  className="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+                  Delete
+                </button>
+              </div>
+            </div>
           </div>
-        )}
+        ))}
       </div>
+      {games.length === 0 && (
+        <div className="text-center py-6 text-gray-600">
+          No games available.
+        </div>
+      )}
     </div>
   );
 };
