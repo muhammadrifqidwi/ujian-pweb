@@ -16,13 +16,13 @@ const AboutModal = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50 m-0 p-0">
+        <div className="fixed inset-0 flex justify-center items-center z-50 m-0 p-0">
           <div className="bg-white rounded-lg shadow-lg w-3/4 md:w-1/2 p-6">
             <h2 className="text-2xl font-bold mb-4 text-slate-800">
               Tentang Website
             </h2>
             <p className="mb-4 text-slate-800">
-              Website katalog game ini di buat oleh :
+              Website katalog game ini dibuat oleh :
             </p>
             <ul className="list-disc list-inside mb-4 text-slate-800">
               <li>
