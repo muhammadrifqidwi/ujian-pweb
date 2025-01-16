@@ -26,7 +26,7 @@ const GameList = () => {
 
   useEffect(() => {
     fetchGames();
-  }, []);
+  }, [games]);
 
   return (
     <div className="max-w-6xl mx-auto mt-10">

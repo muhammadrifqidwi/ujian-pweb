@@ -1,30 +1,3 @@
-// import GameForm from "../components/GameForm";
-
-// import { useNavigate } from "react-router-dom";
-
-// const AddGame = () => {
-//   const navigate = useNavigate();
-
-//   const handleBack = () => {
-//     navigate("/"); // Arahkan ke halaman utama
-//   };
-
-//   return (
-//     <div>
-//       {/* Konten edit game */}
-//       <GameForm />
-//       {/* Tombol kembali ke halaman utama */}
-//       <button
-//         onClick={handleBack}
-//         className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
-//         Kembali ke Halaman Utama
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default AddGame;
-
 import GameForm from "../components/GameForm";
 import { useNavigate } from "react-router-dom";
 
