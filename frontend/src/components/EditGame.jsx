@@ -16,7 +16,7 @@ const EditGame = () => {
     const fetchGame = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/games/${id}`
+          `https://ujian-pweb-be.vercel.app/api/games/${id}`
         );
         setFormData(response.data);
       } catch (error) {
@@ -35,7 +35,10 @@ const EditGame = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/games/${id}`, formData);
+      await axios.put(
+        `https://ujian-pweb-be.vercel.app/api/games/${id}`,
+        formData
+      );
       navigate("/"); // Navigasi ke halaman utama setelah berhasil
     } catch (error) {
       console.error("Error updating game:", error);
@@ -94,7 +97,8 @@ const EditGame = () => {
         </div>
         <button
           type="submit"
-          className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        >
           Save Changes
         </button>
       </form>
@@ -102,7 +106,8 @@ const EditGame = () => {
       {/* Teks untuk kembali ke halaman utama */}
       <p
         onClick={handleBack}
-        className="mt-4 text-blue-600 hover:text-blue-800 cursor-pointer text-center">
+        className="mt-4 text-blue-600 hover:text-blue-800 cursor-pointer text-center"
+      >
         Back to Home Page
       </p>
     </div>

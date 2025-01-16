@@ -8,7 +8,9 @@ const GameList = () => {
 
   const fetchGames = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/games");
+      const response = await axios.get(
+        "https://ujian-pweb-be.vercel.app/api/games"
+      );
       setGames(response.data);
     } catch (error) {
       console.error("Error fetching games:", error);
@@ -17,7 +19,7 @@ const GameList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/games/${id}`);
+      await axios.delete(`https://ujian-pweb-be.vercel.app/api/games/${id}`);
       fetchGames();
     } catch (error) {
       console.error("Error deleting game:", error);
@@ -35,7 +37,8 @@ const GameList = () => {
         {games.map((game) => (
           <div
             key={game._id}
-            className="bg-white shadow-lg rounded-lg overflow-hidden">
+            className="bg-white shadow-lg rounded-lg overflow-hidden"
+          >
             <img
               src={coverImage}
               alt="Game Default"
@@ -55,12 +58,14 @@ const GameList = () => {
               <div className="flex justify-end">
                 <Link
                   to={`/edit-game/${game._id}`}
-                  className="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition mr-2">
+                  className="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition mr-2"
+                >
                   Edit
                 </Link>
                 <button
                   onClick={() => handleDelete(game._id)}
-                  className="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+                  className="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+                >
                   Delete
                 </button>
               </div>

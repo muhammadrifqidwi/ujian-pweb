@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import AddGame from "./pages/AddGame";
 import EditGame from "./components/EditGame";
-import Footer from "./components/Footer"; // Import Footer
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"; // Import Footer
 
 const AppContent = () => {
   const location = useLocation();
