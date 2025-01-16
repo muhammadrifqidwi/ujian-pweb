@@ -19,7 +19,7 @@ const GameForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://ujian-pweb-be.vercel.app/api/games", {
+      await axios.post("http://localhost:5000/api/games", {
         ...formData,
         price: parseFloat(formData.price),
       });
@@ -90,8 +90,7 @@ const GameForm = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-          >
+            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
             Add Game
           </button>
         </form>
